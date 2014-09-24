@@ -30,7 +30,7 @@ Long version, lots of people like to change the listening port for RDP, so if yo
 * modifies the windows firewall rule for RDP. (if configured)
 * restarts the Remote Desktop Services service.
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements 
 
 This module has only been tested with Powershell 3 and up.  Please ensure you are using a newer version of Powershell before using this module.
 

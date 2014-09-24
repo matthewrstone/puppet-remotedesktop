@@ -11,6 +11,8 @@
     {
       "name": "puppetlabs-powershell",
       "version_range": ">= 1.0.0",
+      "name": "puppetlabs-registry",
+      "version_range": ">= 1.0.3",
       "name": "souldo-wmi",
       "version_range": ">= 0.1.0"
     }
