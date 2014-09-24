@@ -1,0 +1,19 @@
+{
+  "name": "souldo-remotedesktop",
+  "version": "1.0.0",
+  "author": "souldo",
+  "summary": "Manage Windows Remote Desktop",
+  "license": "Apache 2.0",
+  "source": "https://github.com/matthewrstone/puppet-remotedesktop",
+  "project_page": "https://github.com/matthewrstone/puppet-remotedesktop",
+  "issues_url": "https://github.com/matthewrstone/puppet-remotedesktop/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-powershell",
+      "version_range": ">= 1.0.0",
+      "name": "souldo-wmi",
+      "version_range": ">= 0.1.0"
+    }
+  ]
+}
+
