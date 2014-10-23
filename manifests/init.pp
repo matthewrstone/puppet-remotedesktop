@@ -36,20 +36,27 @@ class remotedesktop (
   $port            = 3389,
   $manage_firewall = false,
 ) {
-
-  wmi { 'Remote Desktop - Network Level Authentication' :
-    wmi_namespace => 'root/cimv2/terminalservices',
-    wmi_class     => 'Win32_TSGeneralSetting',
-    wmi_property  => 'UserAuthenticationRequired',
-    wmi_value     => 1,
+  case $ensure {
+    present : { $rdp_data = 1 }
+    absent  : { $rdp_data = 0 }
+    default : { fail('Must define ensure status - present or absent') }
   }
-
+  case $nla {
+    present : { $nla_data = 1 }
+    absent  : { $nla_data = 0 }
+    default : { fail('Must define NLA status - present or absent') }
+  }
   wmi { 'Remote Desktop - Allow Connections' :
     wmi_namespace => 'root/cimv2/terminalservices',
     wmi_class     => 'Win32_TerminalServiceSetting',
     wmi_property  => 'AllowTSConnections',
-    wmi_value     => 1,
+    wmi_value     => $rdp_data,
   }
-
+  wmi { 'Remote Desktop - Network Level Authentication' :
+    wmi_namespace => 'root/cimv2/terminalservices',
+    wmi_class     => 'Win32_TSGeneralSetting',
+    wmi_property  => 'UserAuthenticationRequired',
+    wmi_value     => $nla_data,
+  }
   class { 'remotedesktop::port' : }
 }

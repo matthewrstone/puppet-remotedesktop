@@ -14,7 +14,6 @@ class remotedesktop::port (
     type   => 'dword',
     data   => $rdp_port,
   }
-
   case $firewall {
     true   : {
       registry_value { 'HKLM\System\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP':
@@ -23,19 +22,12 @@ class remotedesktop::port (
       }
     }
     default  : { }
-    }
-
-    #  service { 'TermService' :
-    #restart   => true,
-    #subscribe => Registry_value['HKLM\System\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP']
-    #}
-
-    exec { 'Restart Terminal Services' :
-      command     => "net stop TermService /y; net start TermService",
-      refreshonly => true,
-      subscribe   => Registry_value['HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber'],
-      provider    => powershell,
-    }
-
+  }
+  exec { 'Restart Terminal Services' :
+    command     => "net stop TermService /y; net start TermService",
+    refreshonly => true,
+    subscribe   => Registry_value['HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber'],
+    provider    => powershell,
+  }
 }
 

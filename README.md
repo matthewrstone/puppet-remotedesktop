@@ -8,6 +8,7 @@
     * [What remotedesktop affects](#what-remotedesktop-affects)
     * [Setup requirements](#setup-requirements)
 4. [Usage](#usage)
+5. [Changelog](#changelog)
 
 
 ## Overview
@@ -57,3 +58,12 @@ By default, applying this module with no parameters will enable remotedesktop wi
       manage_firewall => true,
     }
 
+## CHANGELOG
+
+v1.0.1
+------
+- Same functionality, just cleaned up the code a bit.
+
+v1.0.0
+------
+- Initial release
