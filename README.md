@@ -60,9 +60,13 @@ By default, applying this module with no parameters will enable remotedesktop wi
 
 ## CHANGELOG
 
+v1.0.2
+------
+- Code cleanup
+
 v1.0.1
 ------
-- Same functionality, just cleaned up the code a bit.
+- Metadata fixes
 
 v1.0.0
 ------
